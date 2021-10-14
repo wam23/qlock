@@ -1,5 +1,9 @@
 window.onload = currentTime;
+var timer;
 
 function currentTime() {
-    document.getElementById('time').textContent = new Date();
+    timer = setInterval(() => {
+        var d = new Date();
+        document.getElementById('time').textContent = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    }, 1000);
 }
