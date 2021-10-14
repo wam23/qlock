@@ -8,8 +8,14 @@ table {
     font-weight: bold;
     text-align: center;
     table-layout: fixed;
+    font-family: 'Stencil', sans-serif;
 }
 
 td {
-    width: 9%;
+    width: 9.2%;
+}
+
+@font-face {
+    font-family: 'Stencil';
+    src: url('DINSRG__.TTF');
 }
