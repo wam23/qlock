@@ -1,12 +1,31 @@
-window.onload = currentTime;
+window.onload = realTime;
 var timer;
 
-function currentTime() {
+function realTime() {
+    clearInterval(timer);
     timer = setInterval(() => {
         var d = new Date();
         document.getElementById('time').textContent = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+        allOff();
         updateTime(d.getHours(), d.getMinutes());
     }, 1000);
+}
+
+function simulateTime() {
+    clearInterval(timer);
+    var d = new Date();
+    timer = setInterval(() => {
+        d = new Date(d.getTime() + 60 * 1000);
+        document.getElementById('time').textContent = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+        allOff();
+        updateTime(d.getHours(), d.getMinutes());
+    }, 500);
+}
+
+function off() {
+    clearInterval(timer);
+    document.getElementById('time').textContent = "off";
+    allOff();
 }
 
 function updateTime(hour, minutes) {
@@ -51,7 +70,7 @@ function updateTime(hour, minutes) {
             break;
     }
 
-    if (minutes > 22) {
+    if (minutes >= 25) {
         hour++;
     }
 
