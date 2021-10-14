@@ -4,4 +4,10 @@ body {
 
 table {
     font-size: xxx-large;
+    text-align: center;
+    table-layout: fixed;
+}
+
+td {
+    width: 9%;
 }
