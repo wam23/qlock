@@ -71,10 +71,12 @@ void updateWebTime()
     {
       String payload = http.getString();
       Serial.println(payload);
+      Serial.printf("old: %d:%d:%d", hour, minute, second);
       int start = payload.indexOf("datetime");
-      int hour = payload.substring(22, 24).toInt();
-      int minute = payload.substring(25, 27).toInt();
-      int second = payload.substring(28, 30).toInt();
+      hour = payload.substring(start + 22, start + 24).toInt();
+      minute = payload.substring(start + 25, start + 27).toInt();
+      second = payload.substring(start + 28, start + 30).toInt();
+      Serial.printf("new: %d:%d:%d", hour, minute, second);
     }
     else
     {
@@ -93,7 +95,6 @@ void updateWebTime()
 void setup()
 {
   // put your setup code here, to run once:
-
 }
 
 void loop()
