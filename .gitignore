@@ -2,3 +2,4 @@
 *.otf
 .DS_Store
 arduino/secret.h
+.vscode
