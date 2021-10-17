@@ -53,7 +53,7 @@ void updateTime()
 
 void updateWebTime()
 {
-  Serial.begin(115200);
+  Serial.print("Start Wifi");
 
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED)
@@ -70,13 +70,13 @@ void updateWebTime()
     if (httpCode == HTTP_CODE_OK)
     {
       String payload = http.getString();
-      Serial.println(payload);
-      Serial.printf("old: %d:%d:%d", hour, minute, second);
+      //Serial.println(payload);
+      Serial.printf("old: %d:%d:%d\n", hour, minute, second);
       int start = payload.indexOf("datetime");
       hour = payload.substring(start + 22, start + 24).toInt();
       minute = payload.substring(start + 25, start + 27).toInt();
       second = payload.substring(start + 28, start + 30).toInt();
-      Serial.printf("new: %d:%d:%d", hour, minute, second);
+      Serial.printf("new: %d:%d:%d\n", hour, minute, second);
     }
     else
     {
@@ -84,7 +84,7 @@ void updateWebTime()
     }
 
     http.end();
-    Serial.println("Disconnected");
+    Serial.println("Disconnected Wifi");
   }
   else
   {
@@ -95,6 +95,10 @@ void updateWebTime()
 void setup()
 {
   // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial.println("Setup");
+  
+  updateWebTime(); // init with web time
 }
 
 void loop()
