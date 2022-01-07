@@ -12,7 +12,11 @@ table {
 }
 
 td {
-    width: 9.2%;
+    width: 16.6mm;
+}
+
+tr {
+    height: 18mm;
 }
 
 @font-face {
