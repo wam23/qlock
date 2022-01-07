@@ -1,3 +1,13 @@
+void timer_setup()
+{
+}
+
+void timer_loop()
+{
+  updateSeconds();
+  updateTime();
+}
+
 void updateSeconds()
 {
   static const unsigned long REFRESH_INTERVAL = 1000; // ms

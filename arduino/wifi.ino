@@ -10,6 +10,15 @@
 WiFiClient client;
 HTTPClient http;
 
+void wifi_setup()
+{
+  updateWebTime(); // init with web time
+}
+
+void wifi_loop()
+{
+}
+
 void updateWebTime()
 {
   Serial.print("Start Wifi");
